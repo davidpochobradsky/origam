@@ -1,0 +1,12 @@
+/backend/UpgradeLog3.htm
+/backend/logs/origam/MailLog.log
+/backend/logs/origam/OrigamServer.log
+/backend/logs/origam/OrigamServer.log.1
+/backend/logs/origam/OrigamServer.log.2
+/backend/logs/origam/OrigamServer.log.3
+/backend/logs/origam/OrigamServer.log.4
+/backend/logs/origam/OrigamServer.log.5
+/repo merge.bat
+/repo merge_fix.bat
+/repo_merge_20201.bat
+/repo_merge_stable.bat

@@ -1,0 +1,62 @@
+{
+	"name": "neworigamproject",
+	"displayName": "NewOrigamProject",
+	"description": "NewProjectWizard",
+	"version": "0.0.1",
+	"engines": {
+		"vscode": "^1.59.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:neworigamproject.NewProjectWizard"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "neworigamproject.NewProjectWizard",
+				"category": "Origam",
+				"title": "NewProjectWizard"
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile ",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "npm run compile && npm run lint",
+		"lint": "eslint src --ext ts",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/decompress": "^4.2.4",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.2.2",
+		"@types/node": "^14.17.20",
+		"@types/uuid": "^8.3.1",
+		"@types/vscode": "^1.60.0",
+		"@typescript-eslint/eslint-plugin": "^4.32.0",
+		"@typescript-eslint/parser": "^4.32.0",
+		"eslint": "^7.27.0",
+		"glob": "^7.2.0",
+		"mocha": "^8.4.0",
+		"typescript": "^4.4.3",
+		"vscode-test": "^1.5.2"
+	},
+	"dependencies": {
+		"@types/follow-redirects": "^1.13.1",
+		"@types/yauzl": "^2.9.2",
+		"decompress": "^4.2.1",
+		"follow-redirects": "^1.14.2",
+		"fs-extra": "^10.0.0",
+		"https": "^1.0.0",
+		"node-stringbuilder": "^2.2.6",
+		"path": "^0.12.7",
+		"replace-in-file": "^6.2.0",
+		"unzip-stream": "^0.3.1",
+		"uuid": "^8.3.2",
+		"yauzl": "^2.10.0"
+	}
+}
