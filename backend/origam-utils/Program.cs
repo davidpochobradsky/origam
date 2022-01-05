@@ -503,8 +503,10 @@ namespace Origam.Utils
             }
         }
 
-        private static void TestDatabase(int tries, int delay, string sqlCommand)
+        private static bool TestDatabase(int tries, int delay, string sqlCommand)
         {
+            bool result = false;
+            
             OrigamSettings settings = ConfigurationManager.GetActiveConfiguration();
             string connString = settings.DataConnectionString;
 
@@ -512,7 +514,7 @@ namespace Origam.Utils
             {
                 try
                 {
-                    Console.WriteLine("Connecting to: {0}", connString);
+                    log.Info($"Connecting to: {connString}");
                     using (var connection = new SqlConnection(connString))
                     {
                         var query = sqlCommand;
@@ -524,8 +526,14 @@ namespace Origam.Utils
                         log.Info("SQL Connection successful.");
 
                         var info = command.ExecuteScalar().ToString();
-                        log.Info(
-                            $"SQL Query execution successful.Result:{info}");
+                        
+                        if (info != null)
+                        {
+                            log.Info(
+                                $"SQL Query execution successful." +
+                                $"Result:{info}");
+                            result = true;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -534,6 +542,8 @@ namespace Origam.Utils
                 }
                 Thread.Sleep(delay);
             }
+
+            return result;
         }
     }
 }
