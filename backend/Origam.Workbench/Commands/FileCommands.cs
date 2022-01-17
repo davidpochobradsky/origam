@@ -430,7 +430,6 @@ namespace Origam.Workbench.Commands
 					{
 						return false;
 					}
-					return false;
 				}
 				else
 				{
