@@ -143,6 +143,16 @@ namespace Origam.Utils
                 HelpText = "What sql-command to run.")]
             public string sqlCommand { get; set; }
         }
+        
+        public class DBCreateArguments
+        {            
+            [Option('n', "name", Required = true,
+                HelpText = "Create your acc name.")]
+            public string name { get; set; }
+            [Option('p', "passwrod", Required = true,
+                HelpText = "Create your password.")]
+            public string password { get; set; }
+        }
 
         public class ProcessDocGeneratorArgs
         {
@@ -301,6 +311,9 @@ namespace Origam.Utils
                     return TestDatabase(
                         (DBTestArguments)invokedVerbInstance);
                 }
+                
+                case "create-db":
+                    return CreateDemoDB((DBCreateArguments)invokedVerbInstance);
 #endif
                 default:
                 {
@@ -642,12 +655,12 @@ namespace Origam.Utils
             return result;
         }
 
-        private void CreateDemoDB(string name, string password)
+        private static void CreateDemoDB(DBCreateArguments arguments)
         {
             var xxx = Origam.Workbench.Services.CoreServices.DataService.GetDataService();
             var connector = (AbstractDataService)xxx;
             connector.CreateDatabase(GetSettings().ModelSourceControlLocation);
-            connector.CreateDatabaseUser(name, password, name, true);
+            connector.CreateDatabaseUser(arguments.name, arguments.password, arguments.name, true);
         }
     }
 }
