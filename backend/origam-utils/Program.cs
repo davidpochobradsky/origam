@@ -590,7 +590,7 @@ namespace Origam.Utils
             }
         }
 
-        private static int TestDatabase(DBTestArguments arguments)
+        private static OrigamSettings GetSettings()
         {
             OrigamSettingsCollection configurations =
                 ConfigurationManager.GetAllConfigurations();
@@ -600,8 +600,12 @@ namespace Origam.Utils
             }
 
             OrigamSettings settings = configurations[0];
-            
-            string connString = settings.DataConnectionString;
+            return settings;
+        }
+
+        private static int TestDatabase(DBTestArguments arguments)
+        {
+            string connString = GetSettings().DataConnectionString;
             int result = 0;
 
             for (int i = 0; i < arguments.tries; i++)
@@ -636,6 +640,14 @@ namespace Origam.Utils
                 ? "True."
                 : "False");
             return result;
+        }
+
+        private void CreateDemoDB(string name, string password)
+        {
+            var xxx = Origam.Workbench.Services.CoreServices.DataService.GetDataService();
+            var connector = (AbstractDataService)xxx;
+            connector.CreateDatabase(GetSettings().ModelSourceControlLocation);
+            connector.CreateDatabaseUser(name, password, name, true);
         }
     }
 }
