@@ -38,6 +38,7 @@ using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Threading;
 using BrockAllen.IdentityReboot;
+using Origam.Workbench.Services.CoreServices;
 
 namespace Origam.Utils
 {
@@ -655,12 +656,14 @@ namespace Origam.Utils
             return result;
         }
 
-        private static void CreateDemoDB(DBCreateArguments arguments)
+        private static int CreateDemoDB(DBCreateArguments arguments)
         {
-            var xxx = Origam.Workbench.Services.CoreServices.DataService.GetDataService();
-            var connector = (AbstractDataService)xxx;
+            var dataService = DataService.GetDataService();
+            var connector = (AbstractDataService)dataService;
             connector.CreateDatabase(GetSettings().ModelSourceControlLocation);
             connector.CreateDatabaseUser(arguments.name, arguments.password, arguments.name, true);
+
+            return 1;
         }
     }
 }
