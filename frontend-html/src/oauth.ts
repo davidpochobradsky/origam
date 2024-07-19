@@ -24,12 +24,12 @@ const [windowLocation] = window.location.href.split("#");
 const config = {
   authority: `${windowLocation}`,
   client_id: "origamWebClient",
-  redirect_uri: `${windowLocation}#origamClientCallback/`,
+  redirect_uri: `${windowLocation}${windowLocation.endsWith("/") ? "" : "/"}#origamClientCallback/`,
   response_type: "code",
   scope: "openid IdentityServerApi offline_access",
   post_logout_redirect_uri: `${windowLocation}`,
   automaticSilentRenew: true,
-  silent_redirect_uri: `${windowLocation}#origamClientCallbackRenew/`,
+  silent_redirect_uri: `${windowLocation}${windowLocation.endsWith("/") ? "" : "/"}#origamClientCallbackRenew/`,
 };
 
 export const userManager = new UserManager(config);

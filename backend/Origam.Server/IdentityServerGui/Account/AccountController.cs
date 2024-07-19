@@ -33,7 +33,7 @@ namespace Origam.Server.IdentityServerGui.Account
 {
     [SecurityHeaders]
     [AllowAnonymous]
-    [Route("/account/[action]")]
+    [Route("account/[action]")]
     public class AccountController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly UserManager<IOrigamUser> _userManager;
@@ -237,7 +237,7 @@ namespace Origam.Server.IdentityServerGui.Account
                     string emailConfirmToken = await _userManager.GenerateEmailConfirmationTokenAsync(user);
                     await _userManager.ConfirmEmailAsync(user, emailConfirmToken);
                     UserTools.SetInitialSetupComplete();
-                    return Redirect("/");
+                    return Redirect("~/");
                 }
                 AddErrors(result);
             }

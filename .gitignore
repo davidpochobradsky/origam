@@ -3,3 +3,10 @@
 .DS_Store
 /plugins/__pycache__
 /plugins/pluginmanager_config.json
+/backend/Origam.Server/appsettings.json
+/backend/Origam.Server/serverCore.cer
+/backend/Origam.Server/serverCore.key
+/frontend-html/.gitattributes
+/frontend-html/.yarn/install-state.gz
+/model-tests/NewProject/mydemo.cmd
+/model-tests/NewProject/mydemo.env

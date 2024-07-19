@@ -51,7 +51,7 @@ export enum IAuditLogColumnIndices {
 
 export class OrigamAPI implements IApi {
   constructor(errorHandler: (error: any) => void) {
-    this.urlPrefix = "/internalApi";
+    this.urlPrefix = "internalApi";
     this.chatroomsUrlPrefix = "/chatrooms";
     this.axiosInstance = this.createAxiosInstance();
     this.errorHandler = errorHandler;

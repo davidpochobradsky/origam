@@ -82,7 +82,7 @@
 {
     <div class="centered">
         <div class="reset-password-statement">
-            @SharedLocalizer["ToResetPassword1"]<a class="in-page-link" href="/account/forgotpassword">@SharedLocalizer["ToResetPassword2"]</a>@SharedLocalizer["ToResetPassword3"]
+            @SharedLocalizer["ToResetPassword1"]<a class="in-page-link" href="~/account/forgotpassword">@SharedLocalizer["ToResetPassword2"]</a>@SharedLocalizer["ToResetPassword3"]
         </div>
     </div>
 }
@@ -92,11 +92,11 @@
         <div class="initial-user-statement">
             @if (UserTools.IsInitialSetupNeeded())
             {
-            @SharedLocalizer["ToInitialUser1"]<a class="in-page-link" href="/account/registerinitialuser">@SharedLocalizer["ToInitialUser2"]</a>@SharedLocalizer["ToInitialUser3"]
+            @SharedLocalizer["ToInitialUser1"]<a class="in-page-link" href="~/account/registerinitialuser">@SharedLocalizer["ToInitialUser2"]</a>@SharedLocalizer["ToInitialUser3"]
             }
             else
             {
-            @SharedLocalizer["ToInitialUser1"]<a class="in-page-link" href="/account/register">@SharedLocalizer["ToInitialUser2"]</a>@SharedLocalizer["ToInitialUser3"]
+            @SharedLocalizer["ToInitialUser1"]<a class="in-page-link" href="~/account/register">@SharedLocalizer["ToInitialUser2"]</a>@SharedLocalizer["ToInitialUser3"]
             }
         </div>
     </div>

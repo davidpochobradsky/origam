@@ -320,9 +320,10 @@ namespace Origam.Server
         }
 
         public void Configure(
-            IApplicationBuilder app, IWebHostEnvironment env, 
+            IApplicationBuilder app, IWebHostEnvironment env,
             ILoggerFactory loggerFactory)
         {
+            app.UsePathBase("/origam");
             loggerFactory.AddLog4Net();
             
             if (env.IsDevelopment())
