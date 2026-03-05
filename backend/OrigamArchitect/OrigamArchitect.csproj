@@ -29,6 +29,9 @@
     <LangVersion>10</LangVersion>
   </PropertyGroup>
   <PropertyGroup>
+    <NoWarn>NU1701</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
     <DefineConstants Condition="'$(TargetFramework)'=='netstandard2.0'">NETSTANDARD;NETSTANDARD2_0</DefineConstants>
     <Configurations>Debug Client;Debug Architect;Debug Server;Release Client;Release Architect;Release Server</Configurations>
   </PropertyGroup>
@@ -364,9 +367,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="SchemaCompareEditor.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="SchemaCompareEditor.cs" />
     <Compile Include="SchemaItemAncestorCollectionEditor.cs" />
     <Compile Include="SplashScreen.cs">
       <SubType>Form</SubType>
@@ -387,15 +388,9 @@
     <Compile Include="SystemInformation.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="WorkflowPlayerPad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WorkQueuePad.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="WorkQueueWindow.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="WorkflowPlayerPad.cs" />
+    <Compile Include="WorkQueuePad.cs" />
+    <Compile Include="WorkQueueWindow.cs" />
     <Content Include="App.ico" />
     <Content Include="Attributions.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
